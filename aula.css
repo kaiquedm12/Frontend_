@@ -1,4 +1,23 @@
-.cor1{
-    background-color: black;
-    color: white;
+*{
+    height: 50%;
+}
+body{
+    background-image: linear-gradient(to top, #4fffdc, #3fccb0, #3d8577);
+    background-attachment: fixed;
+}
+.teste{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: auto;
+}
+.teste2{
+    .teste{
+        display: flex;
+        justify-content: center;
+        align-items: left;
+        height: 500px;
+        width: 500px;
+    }
 }
