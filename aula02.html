@@ -1,17 +1,200 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <link rel="stylesheet" href="aula.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gradiente em css</title>
-</head>
-<body>
-    <h1 style= "color: white;">Mariane ribeiro</h1>
-    <div class="teste">
-        <a href="https://www.youtube.com/@paulin_rei_delas" target="_blank">
-            <img width ="200px" height = "200px" src="data:image/jpeg;base64,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">
-        </a>
-   </div> 
-</body>
-</html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css">
+        <link rel="stylesheet" href="style.css">
+        <title>Kaique</title>
+    </head>
+    
+    <body>
+    
+        <nav>
+            <div class="nav-logo">
+                <a href="#">
+                    <img src="img/ROG_0459.jpg">
+                </a>
+            </div>
+    
+            <ul class="nav-links">
+                <li class="link"><a href="#">Home</a></li>
+                <li id="link1" class="link"><a href="#">Features</a></li>
+                <li id="link2" class="link"><a href="#">Pricing</a></li>
+                <li id="link3" class="link"><a href="#">About</a></li>
+            </ul>
+            <button class="btn">Hire Me</button>
+        </nav>
+    
+        <header class="container">
+            <div class="content">
+                <span class="blur"></span>
+                <span class="blur"></span>
+                <h4>CREATE YOUR SITE LIKE A PRO</h4>
+                <H1>Hi, I'm <span>Reza</span>, Web Developer</H1>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus rem eos aliquid quo rerum
+                    temporibus ipsum distinctio numquam ut omnis placeat, nam sint atque quos dolorem laborum? Rerum, esse
+                    dolorem.
+                </p>
+                <button class="btn">Get Started</button>
+            </div>
+            <div class="image">
+                <img src="images/header.png">
+            </div>
+        </header>
+    
+        <section class="container">
+            <h2 class="header">OUR FEATURES</h2>
+            <div class="features">
+                <div class="card">
+                    <span><i class="ri-money-dollar-box-line"></i></span>
+                    <h4>Free Tutorials</h4>
+                    <p>
+                        My tutorials in my channel "AsmrProg" are free and you don't need to pay anything.
+                    </p>
+                    <a href="#">Join Now <i class="ri-arrow-right-line"></i></a>
+                </div>
+                <div class="card">
+                    <span><i class="ri-bug-line"></i></span>
+                    <h4>Fix Your Bugs</h4>
+                    <p>
+                        You have any problem in your codes? Tell me, i will help you fix it.
+                    </p>
+                    <a href="#">Join Now <i class="ri-arrow-right-line"></i></a>
+                </div>
+                <div class="card">
+                    <span><i class="ri-history-line"></i></span>
+                    <h4>On Time Videos</h4>
+                    <p>
+                        We have video each 4 days, So check channel every 4 days to watch it!
+                    </p>
+                    <a href="#">Join Now <i class="ri-arrow-right-line"></i></a>
+                </div>
+                <div class="card">
+                    <span><i class="ri-shake-hands-line"></i></span>
+                    <h4>Cooperation</h4>
+                    <p>
+                        You want we worrk together? Write email to us, we will read it.
+                    </p>
+                    <a href="#">Join Now <i class="ri-arrow-right-line"></i></a>
+                </div>
+            </div>
+        </section>
+    
+        <section class="container">
+            <h2 class="header">PROJECT PRICING PLANS</h2>
+            <p class="sub-header">
+                Our pricing plans come with various membership tiers, each tailored to cater to different projects and
+                class+ code types.
+            </p>
+            <div class="pricing">
+                <div class="card">
+                    <div class="content">
+                        <h4>Basic Plan</h4>
+                        <h3>0$</h3>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Smart coding plan
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            At home workouts
+                        </p>
+                    </div>
+                    <button class="btn">Join Now</button>
+                </div>
+                <div class="card">
+                    <div class="content">
+                        <h4>Gold Plan</h4>
+                        <h3>10$</h3>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Pro codes
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Smart coding plan
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            At home workouts
+                        </p>
+                    </div>
+                    <button class="btn">Join Now</button>
+                </div>
+                <div class="card">
+                    <div class="content">
+                        <h4>Diamond Plan</h4>
+                        <h3>100$</h3>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Elite Classes & Courses
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Pro codes
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Personal Coaching
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Smart coding plan
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            At home workouts
+                        </p>
+                    </div>
+                    <button class="btn">Join Now</button>
+                </div>
+            </div>
+        </section>
+    
+        <footer class="container">
+            <span class="blur"></span>
+            <span class="blur"></span>
+            <div class="column">
+                <div class="logo">
+                    <img src="images/logo.png">
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+                <div class="socials">
+                    <a href="#"><i class="ri-youtube-line"></i></a>
+                    <a href="#"><i class="ri-instagram-line"></i></a>
+                    <a href="#"><i class="ri-twitter-line"></i></a>
+                </div>
+            </div>
+            <div class="column">
+                <h4>Company</h4>
+                <a href="#">Business</a>
+                <a href="#">Partnership</a>
+                <a href="#">Network</a>
+            </div>
+            <div class="column">
+                <h4>About Us</h4>
+                <a href="#">Blogs</a>
+                <a href="#">Channels</a>
+                <a href="#">Sponsors</a>
+            </div>
+            <div class="column">
+                <h4>Contact</h4>
+                <a href="#">Contact Us</a>
+                <a href="#">Privicy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+        </footer>
+    
+        <div class="copyright">
+            Copyright © 2023 AsmrProg Channel. All Rights Reserved.
+        </div>
+    
+    
+        <script src="script.js"></script>
+    </body>
+    
+    </html>
