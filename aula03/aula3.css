@@ -1,3 +1,7 @@
+body{
+    background-image: linear-gradient(to top, #6da0ff, #5790fa, #b8a4ff);
+    background-attachment: fixed;
+}
 .container-form {
     display: flex;
     align-items: center;
