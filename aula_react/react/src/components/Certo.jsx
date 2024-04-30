@@ -1,4 +1,4 @@
-function Certo({produtos}) {
+function Certo({produtos,editProduct,deleteProduct}) {
    
     return (
         <table>
@@ -17,10 +17,10 @@ function Certo({produtos}) {
                         <td>{product.price}</td>
                         <td>{product.stock}</td>
                         <td class="actions">
-                            <button>Editar</button>
-                            <button>Excluir</button>
+                            <button onClick={() => editProduct(product.id)}>Editar</button>
+                            <button onClick={() => deleteProduct(product.id)}>Excluir</button>
                         </td>
-
+                        
                     </tr>
                 ))}
                 

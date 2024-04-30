@@ -46,8 +46,8 @@ function App() {
       setProducts(products.filter((prod) => prod.id !== id))
     }
 
-    const editProduct = (id) => {
-      const product = product.find(prod => prod.id === id)
+    const editProduct = (productId) => {
+      const product = products.find(prod => prod.id === productId)
       setId(product.id)
       setName(product.name)
       setPrice(product.price)
@@ -61,11 +61,11 @@ function App() {
     
 
 
-
+    
   return(
     <>
       {console.log(products)}
-      <Certo produtos={products} />
+      <Certo produtos={products} editProduct={editProduct} deleteProduct={deleteProduct} />
       <Bonus handleName={handleName} handlePrice={handlePrice} handleStock={handleStock} saveForm={saveForm} name={name} price={price} stock={stock}/>
       
     </>
