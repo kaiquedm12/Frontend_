@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-function Bonus({saveForm, handleName,handlePrice,handleStock, name , price , stock}){
+function Bonus({saveProduct, handleName,handlePrice,handleStock, name , price , stock}){
   
 
 
@@ -7,7 +7,7 @@ function Bonus({saveForm, handleName,handlePrice,handleStock, name , price , sto
        <>
        <div className="container">
             <h2>Cadastro de Produtos</h2>
-            <form onSubmit={saveForm}>
+            <form onSubmit={saveProduct}>
                 <label for = "nome">Nome:</label>
                 <input type="text" name="nome" value={name} required onChange={(e) => handleName(e)}/>
                 <label for = "preço">Preço:</label>

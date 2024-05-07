@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css'
 import Bonus from './Bonus';
 import Certo from './components/Certo';
@@ -13,12 +13,23 @@ function App() {
   //   {id: '5', nome: 'uva',preco: 'R$ 11,00', estoque: '50,00'},
   // ];
   const[products, setProducts] = useState ([])
-  const[id, setId] = useState (1)
+  const[id, setId] = useState ("")
   const[name, setName] = useState ("")
   const[price, setPrice] = useState ("")
   const[stock, setStock] = useState ("")
   const[edit, setEdit] = useState (false)
 
+  const url = 'http://localhost:3000/products';
+
+  useEffect(() => {
+    const getProductslist = async() => {
+      const res = await fetch(url);
+      const data = await res.json();
+      setProducts(data);
+    }
+
+    getProductslist();
+  }, [])
 
   const clearForm = () => {
     setName("")
@@ -26,33 +37,57 @@ function App() {
     setStock("")
   }
 
-  const saveForm = (e) => {
+  const getProductById = async (id) => {
+    const res = await fetch(url + `?id=${id}`);
+    const data = await res.json();
+
+    setName(data[0].name);
+    setPrice(data[0].price);
+    setStock(data[0].stock);
+    setId(data[0].id);
+
+    setId(true);
+  }
+
+  const saveProduct = async (e) => {
     e.preventDefault();
-    if(!edit) {
-      setId( v => v + 1);
-      setProducts((prevProducts) => [...prevProducts, {id, name, price, stock}])
-    }
-    if (edit) {
-      const productIndex = products.findIndex(prod => prod.id === id)
-      products[productIndex] = {id,name,price,stock}
-      setProducts(products)
-      setEdit(false)
-    }
-    clearForm()
-  
-   
-}
- const deleteProduct = (id) => {
-      setProducts(products.filter((prod) => prod.id !== id))
+    const saveRequestParams ={
+      method: edit ? "PUT" : "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({name, price, stock})
     }
 
-    const editProduct = (productId) => {
-      const product = products.find(prod => prod.id === productId)
-      setId(product.id)
-      setName(product.name)
-      setPrice(product.price)
-      setStock(product.stock)
-      setEdit(true)
+    const save_url = edit ? url + `/${id}` : url;
+
+    const res = await fetch(save_url, saveRequestParams);
+
+    if(!edit) {
+     const newProduct = await res.json();
+     setProducts((prevProducts) => [... prevProducts, newProduct]);
+    }
+
+    if (edit) {
+      const editedProduct = await res.json();
+      const editedProductIndex = products.findIndex(prod => prod.id === id);
+      products[editedProductIndex] = editedProduct;
+      setProducts(products);
+    }
+    clearForm();
+    setEdit(false);
+  
+}
+ const deleteProduct = async (id) => {
+      const res = await fetch(url + `/${id}`, {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json"
+        },
+      });
+
+      const deleteProduct = await res.json();
+      setProducts(products.filter(prod => prod.id !== deleteProduct.id));
     }
 
     const handleName = (e) => {setName(e.target.value)}
@@ -65,8 +100,8 @@ function App() {
   return(
     <>
       {console.log(products)}
-      <Certo produtos={products} editProduct={editProduct} deleteProduct={deleteProduct} />
-      <Bonus handleName={handleName} handlePrice={handlePrice} handleStock={handleStock} saveForm={saveForm} name={name} price={price} stock={stock}/>
+      <Certo produtos={products} onEdit={saveProduct} onDelete={deleteProduct}/>
+      <Bonus handleName={handleName} handlePrice={handlePrice} handleStock={handleStock} saveProduct={saveProduct} name={name} price={price} stock={stock}/>
       
     </>
   )

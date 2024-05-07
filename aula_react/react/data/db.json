@@ -1,0 +1,11 @@
+{
+  "products": [
+    {
+      "id": "e95c",
+      "name": "pera",
+      "price": "2",
+      "stock": "2"
+    }
+  ],
+  "user": []
+}
