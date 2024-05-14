@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "jason-server": "^3.0.0"
+    "jason-server": "^3.0.0",
+    "react-router-dom": "^6.23.1"
   }
 }
