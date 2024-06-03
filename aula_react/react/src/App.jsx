@@ -3,6 +3,7 @@ import './App.css'
 import Bonus from './Bonus';
 import Certo from './components/Certo';
 import Formu from './Formu';
+import Login from './components/Login';
 
 function App() {
   // const produtos = [
@@ -17,6 +18,8 @@ function App() {
   const[name, setName] = useState ("")
   const[price, setPrice] = useState ("")
   const[stock, setStock] = useState ("")
+  const[usuario, setUsuario] = useState("")
+  const[senha, setSenha] = useState("")
   const[edit, setEdit] = useState (false)
 
   const url = 'http://localhost:3000/products';
@@ -96,15 +99,14 @@ function App() {
     
 
 
-    
-  return(
-    <>
-      {console.log(products)}
-      <Certo produtos={products} onEdit={saveProduct} onDelete={deleteProduct}/>
-      <Bonus handleName={handleName} handlePrice={handlePrice} handleStock={handleStock} saveProduct={saveProduct} name={name} price={price} stock={stock}/>
-      
-    </>
-  )
-}
+    const handleUsuario = (e) => {setUsuario(e.target.value)};
+    const handleSenha = (e) => {setSenha(e.target.value)};
+  
+    return (
+      <>
+        <Login usuario={usuario} senha={senha} handleUsuario={handleUsuario} handleSenha={handleSenha}/>
+      </>
+    )
+  }
 
 export default App
